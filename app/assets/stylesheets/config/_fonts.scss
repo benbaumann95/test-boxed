@@ -3,7 +3,10 @@
 
 // Define fonts for body and headers
 $body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "Raleway", "Helvetica", "sans-serif";
+$headers-font: 'Nobile', sans-serif;
+h1, h2, h3, p {
+  font-family: 'Nobile', sans-serif;
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

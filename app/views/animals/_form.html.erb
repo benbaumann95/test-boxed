@@ -1,0 +1,31 @@
+<%= simple_form_for(@animal) do |f| %>
+
+
+<div class="container">
+  <div class="row flex">
+    <div class="col-sm-6 margin-auto">
+      <div class="animal-form">
+
+        <div class="form-group">
+          <%= f.label :animal_name, required: true %>
+          <%= f.text_area :animal, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :photo_url, required: true %>
+          <%= f.text_area :photo, class: 'form-control' %>
+        </div>
+
+        <div class="flex space-between">
+          <%= f.submit "Add animal", class: 'btn btn-primary' %>
+          <%= link_to "Cancel", :back, {:class=>"btn btn-danger"} %>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
