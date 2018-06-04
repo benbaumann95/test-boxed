@@ -1,8 +1,12 @@
 
-  <div class="github-container">
+<div class="github-container">
+  <div class="github-image-cover text-center">
+    <%= image_tag 'github-logo', height: 200%>
+  </div>
 
+  <div class="github-query-container">
     <div class="text-center">
-      <h3>Enter a GitHub username!</h3>
+      <h3 class='margin-20'>Enter a GitHub username and see their favourite coding language <i class="fas fa-code"></i></h3>
     </div>
 
     <div class="text-center">
@@ -10,6 +14,7 @@
         <div class="form-group">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           <%= hidden_field_tag :user, @user %>
+          <i class="fas fa-terminal"></i>
           <input type="text" name="user" class="form-control">
         </div>
         <div class="form-group ">
@@ -17,18 +22,20 @@
         </div>
       </form>
     </div>
-
   </div>
 
-<div class="alternative text-center">
-  <h1>OR</h1>
 </div>
 
 
 <div class="link-text text-center">
-  <p>Click below for a bit of fun <i class='far fa-smile'></i></p>
-  <%= link_to "Twitter Coding Zoo", animals_path %>
+  <p>Click below <i class='far fa-smile'></i></p>
+  <%= link_to "Animal Twitter", animals_path %> <i class="fab fa-twitter-square"></i>
 </div>
+
+
+
+
+
 
 
 

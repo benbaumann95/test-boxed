@@ -1,32 +1,40 @@
 <div class="page-title text-center">
-  <h2>Twitter Zoo</h2>
-  <p><%= link_to "Add another coding animal", new_animal_path %></p>
+  <h2 class='page-heading'>Animal Twitter</h2>
+  <p><%= link_to new_animal_path do %>
+    <i class="fas fa-plus-circle fa-2x"></i>
+    <% end %>
+  </p>
 </div>
 
-
-<% @animals.reverse_each do |animal| %>
-<div class="main-container">
-  <div class="left-container">
-    <%= image_tag animal.photo, height: 60, alt: 'horse', class: 'animal-img'%>
-  </div>
-  <div class="text-container">
-    <div class="title">
-      <p><strong><%= animal.animal %></strong></p>
+<div class="twitter-container">
+  <% @animals.reverse_each do |animal| %>
+  <div class="main-container">
+    <div class="left-container">
+      <%= image_tag animal.photo, height: 60, alt: 'horse', class: 'animal-img'%>
     </div>
-    <div class="text-body">
-      <p>as much as I want to be, I'm not <a>@<%=animal.animal%></a></p>
+    <div class="text-container">
+      <div class="title">
+        <p><strong><%= animal.animal %></strong></p>
+      </div>
+      <div class="text-body">
+        <p>as much as I want to be, I'm not <a>@<%=animal.animal%></a></p>
+      </div>
     </div>
-  </div>
 
-  <div class="right-container">
-    <div class="days">
-      <p class='days-left-text'><%= rand(1..9) %> days</p>
-      <div class="edit-delete">
-        <p class='edit-text'><%= link_to "Edit", edit_animal_path(animal.id) %></p>
+    <div class="right-container">
+      <div class="days">
+        <p class='days-left-text'><%= rand(1..9) %> days</p>
+        <div class="edit-delete">
+          <p class='edit-text'><%= link_to "Edit", edit_animal_path(animal.id) %></p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<% end %>
+  <% end %>
 
-<%= link_to "Back to github usernames", root_path, class: 'btn btn-danger margin-top-50 back-btn-red' %>
+  <div class="back-btn-container text-center">
+    <%= link_to "Back to GitHub usernames", root_path, class: 'btn btn-danger margin-top-50 back-btn-red' %>
+  </div>
+</div>
+
+

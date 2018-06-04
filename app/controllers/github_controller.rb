@@ -2,7 +2,7 @@ require "net/https"
 require "uri"
 
 class GithubController < ApplicationController
-  before_action :fetch_ghub_repos, only: [:show, :destroy]
+  before_action :fetch_ghub_repos, only: [:show]
 
   def index
     @user
@@ -19,8 +19,7 @@ class GithubController < ApplicationController
   def fetch_ghub_repos
     ghub_user = params[:user]
 
-    # if working_url?(ghub_user)
-      if url?(ghub_user)
+    if working_ghub_url?(ghub_user) && !ghub_user.blank?
       @user = Octokit.user ghub_user
 
       ghub_repos = @user.rels[:repos].get.data
@@ -32,11 +31,9 @@ class GithubController < ApplicationController
       @fav_language = languages_array.max_by { |i| languages_array.count(i) }
     end
   end
-    # end
 
 
-
-  def url?(ghub_user)
+  def working_ghub_url?(ghub_user)
     uri = URI.parse("https://github.com/#{ghub_user}")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
@@ -45,10 +42,9 @@ class GithubController < ApplicationController
     res = http.request(request)
 
     @status = res.code
-
     @status == "200" ? true : false
   end
-
+end
 
 # def working_request?(ghub_user)
 # open("https://github.com/#{ghub_user}") do |g|
@@ -69,4 +65,4 @@ class GithubController < ApplicationController
   #   false
   # end
 
-end
+
