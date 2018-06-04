@@ -1,15 +1,29 @@
 
+<% if @user.blank? %>
+  <p>That seems to be an incorrect GitHub username. Please try again.</p>
+<% else %>
+
 <div class="results-page text-center">
-  <p class='results-title'><strong><%= @user.name %></strong> has <strong><%= @user.public_repos %></strong> public repositories with a strong preference for</p>
+  <p class='results-title'>
+    <strong>
+    <% if @user.name? %>
+      <%= @user.name %>
+    <% else %>
+      <p>This person
+    <% end %>
+    </strong> has <strong><%= @user.public_repos %></strong> public repositories with a strong preference for</p>
+
   <h3 class='fav-language'>
-    <% if @fav_language %>
+    <% if !@fav_language.blank? %>
       <%= @fav_language.upcase %>!
     <% else %>
-      <p> "no" </p>
+      <p> This person doesn't have a language preference yet</p>
     <% end %>
   </h3>
 
   <p class='github-link'>You can find their GitHub profile at <%= link_to @user.html_url %></p>
+
+  <% end %>
 
   <%= link_to "Try another username", root_path %>
 </div>
