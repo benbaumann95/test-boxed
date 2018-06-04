@@ -39,7 +39,9 @@
   display: flex;
 }
 .text-body{
-  display: flex
+  display: flex;
+  font-size: 14px;
+  margin-top: -10px;
 }
 
 .right-container{
@@ -51,7 +53,7 @@
 }
 .days-left-text{
   font-size: 12px;
-  color: darkslategray;
+  color: lightslategray;
 }
 .edit-text{
   font-size: 12px;
