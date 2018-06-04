@@ -1,33 +1,35 @@
-
 <% if @user.blank? %>
-<div class='results-page text-center'>
-  <p class='results-page text-center'>Oops <i class="far fa-frown"></i>. That seems to be an incorrect GitHub username. Please try again.</p>
-  <%= link_to "Try a valid username", root_path %>
-</div>
+
+  <div class='results-page text-center'>
+    <p class='results-page text-center'>Oops <i class="far fa-frown"></i>. That seems to be an incorrect GitHub username. Please try again.</p>
+    <%= link_to "Try a valid username", root_path %>
+  </div>
 
 <% else %>
 
-<div class="results-page text-center">
-  <p class='results-title'>
-    <% if @user.name? %>
-      <strong><%= @user.name %>
-    <% else %>
-      <p>This person
-    <% end %>
-    </strong> has <strong><%= @user.public_repos %></strong> public repositories with a strong preference for</p>
+  <div class="results-page text-center">
+    <p class='results-title'>
+      <% if @user.name? %>
+        <strong><%= @user.name %>
+      <% else %>
+        <p>This person
+      <% end %>
+      </strong> has <strong><%= @user.public_repos %></strong> public repositories with a strong preference for</p>
 
-  <h3 class='fav-language'>
-    <% if !@fav_language.blank? %>
-      <%= @fav_language.upcase %>!
-    <% else %>
-      <p> This person doesn't have a language preference yet</p>
-    <% end %>
-  </h3>
+    <h3 class='fav-language'>
+      <% if !@fav_language.blank? %>
+        <%= @fav_language.upcase %>!
+      <% else %>
+        <p> This person doesn't have a language preference yet</p>
+      <% end %>
+    </h3>
 
-  <p class='github-link'>You can find their GitHub profile at <%= link_to @user.html_url %></p>
+    <p class='github-link'>
+      You can find their GitHub profile at <%= link_to @user.html_url %>
+    </p>
 
-  <%= link_to "Try another username", root_path, class: 'username-link' %>
-</div>
+    <%= link_to "Try another username", root_path, class: 'username-link' %>
+  </div>
 
 <% end %>
 
