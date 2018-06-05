@@ -25,7 +25,7 @@
     </h3>
 
     <p class='github-link'>
-      You can find their GitHub profile at <%= link_to @user.html_url %>
+      You can find their GitHub profile at <%= link_to @user.html_url, @user.html_url %>
     </p>
 
     <%= link_to "Try another username", root_path, class: 'username-link' %>

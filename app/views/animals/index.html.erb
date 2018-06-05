@@ -25,7 +25,17 @@
       <div class="days">
         <p class='days-left-text'><%= rand(1..9) %> days</p>
         <div class="edit-delete">
-          <p class='edit-text'><%= link_to "Edit", edit_animal_path(animal.id) %></p>
+          <p class='edit-text'>
+            <%= link_to "Edit", edit_animal_path(animal.id) %>
+          </p>
+          <p class='delete-text'>
+            <%= link_to animal_path(animal.id), method: :delete, data:
+            { confirm: "Delete #{animal.animal}?" } do %>
+            <i class="fas fa-trash lightslategrey hover-opacity" aria-hidden"true"></i>
+            <% end %>
+          </p>
+
+
         </div>
       </div>
     </div>

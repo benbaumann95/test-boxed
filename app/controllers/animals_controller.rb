@@ -34,6 +34,7 @@ class AnimalsController < ApplicationController
 
   def destroy
     @animal.destroy
+    redirect_to animals_path
   end
 
   private
